@@ -1,0 +1,6 @@
+﻿Source: Wikimedia Commons, File:Whelen.ogg
+Author: Heggyhomolit
+License: CC0 1.0 Public Domain Dedication
+URL: https://commons.wikimedia.org/wiki/File:Whelen.ogg
+Description: Whelen emergency siren tones (wail/yelp/piercer) recorded from a fire engine.
+File: siren-whelen.ogg (downloaded unchanged)

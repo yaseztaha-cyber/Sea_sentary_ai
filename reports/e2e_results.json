@@ -1,0 +1,46 @@
+[
+  [
+    "tracking-driven heatmap",
+    "samples=25 cells=160 tracks=1"
+  ],
+  [
+    "heatmap modes",
+    "occupancy \u2192 movement via UI"
+  ],
+  [
+    "audio unlock",
+    "AudioContext running, voice listed"
+  ],
+  [
+    "siren",
+    "played, signal peak=0.292"
+  ],
+  [
+    "spoken voice",
+    "local speechSynthesis played; zone included"
+  ],
+  [
+    "WATCH no siren",
+    "no playback or active alert"
+  ],
+  [
+    "critical alert",
+    "INC-0037 siren+voice, zone=North Beach"
+  ],
+  [
+    "duplicate suppression",
+    "Already announced for this incident"
+  ],
+  [
+    "acknowledge",
+    "siren stopped, audio ready, incident remains open"
+  ],
+  [
+    "multi-incident queue",
+    "one active + 1 queued, never overlapping"
+  ],
+  [
+    "audio failure visibility",
+    "disabled audio surfaced as failure notice + banner"
+  ]
+]

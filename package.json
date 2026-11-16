@@ -1,0 +1,55 @@
+{
+  "name": "sea-sentry-ai",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint src tests --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "python tests/e2e_audio_critical.py",
+    "test:audio": "python tests/audio_loopback.py",
+    "test:perf": "python tests/e2e_sustained.py",
+    "test:api": "python tests/api_incidents.py",
+    "test:acoustic": "python tests/acoustic_physical.py",
+    "test:physical": "python tests/physical_camera_validation.py",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:push": "drizzle-kit push"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs": "^4.22.0",
+    "dotenv": "17.3.1",
+    "drizzle-orm": "0.45.2",
+    "gsap": "^3.15.1",
+    "next": "16.4.2",
+    "pg": "8.20.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "web-push": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.17",
+    "@types/node": "22.19.15",
+    "@types/pg": "8.18.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/web-push": "^3.6.4",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.4.2",
+    "postcss": "8.5.23",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

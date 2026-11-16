@@ -1,0 +1,69 @@
+{
+  "provider": "webgl",
+  "selection": {
+    "backend": "webgl",
+    "requested": "auto",
+    "probes": [
+      {
+        "backend": "webgl",
+        "ok": true,
+        "medianMs": 0,
+        "note": "192\u00d7192\u00d716 conv stack, 5 sync readbacks"
+      },
+      {
+        "backend": "cpu",
+        "ok": true,
+        "medianMs": 0,
+        "note": "192\u00d7192\u00d716 conv stack, 5 sync readbacks"
+      }
+    ],
+    "reason": "WebGL verified by workload probe (0ms); selected for CNN inference (CPU measured far slower on the live detector) \u00b7 model loaded on webgl"
+  },
+  "rows": [
+    {
+      "inputSize": 320,
+      "runs": 10,
+      "p50Ms": 143.1,
+      "p95Ms": 227.1,
+      "detections": 1,
+      "avgScore": 0.84,
+      "agreement": 1
+    },
+    {
+      "inputSize": 416,
+      "runs": 10,
+      "p50Ms": 142.3,
+      "p95Ms": 235.2,
+      "detections": 1,
+      "avgScore": 0.77,
+      "agreement": 1
+    },
+    {
+      "inputSize": 512,
+      "runs": 10,
+      "p50Ms": 148.1,
+      "p95Ms": 255.8,
+      "detections": 1,
+      "avgScore": 0.7,
+      "agreement": 1
+    },
+    {
+      "inputSize": 640,
+      "runs": 10,
+      "p50Ms": 146.2,
+      "p95Ms": 291.2,
+      "detections": 1,
+      "avgScore": 0.79,
+      "agreement": 1
+    }
+  ],
+  "notes": "Interleaved measured passes. Agreement = fraction of 640 px reference detections matched at IoU \u2265 0.5. It is a consistency measure, not accuracy: no ground-truth water labels were used.",
+  "live": {
+    "captureFps": 3.9513978069749442,
+    "detectorRate": 0,
+    "trackingRate": 0,
+    "avgLatencyMs": 224.15714285715617,
+    "p95LatencyMs": 951.4000000003725,
+    "tracks": 1
+  }
+}

@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* ABYSS — fonts are bundled locally from /public/fonts */
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/instrument-serif-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/instrument-serif-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@theme {
+  --color-abyss: #061211;
+  --color-ocean: #0a1c1b;
+  --color-depth: #102a28;
+  --color-kelp: #17413a;
+  --color-teal: #26786f;
+  --color-mint: #79dcc4;
+  --color-glass: #a8d7c9;
+  --color-moon: #e7eee8;
+  --color-mist: #98aba2;
+  --color-coral: #f17869;
+  --color-amber: #e6b86c;
+  --color-line: #1d3430;
+  --font-display: "Clash Display", "Manrope", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: #061211;
+  scroll-behavior: auto;
+}
+body {
+  background: #061211;
+  color: #e7eee8;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection {
+  background: #26786f;
+  color: #e7eee8;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-serif-i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* film grain, used on photographic compositions only */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-glass);
+}
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 3rem;
+  padding: 0 1.4rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--color-moon);
+  color: var(--color-abyss);
+}
+.btn-primary:hover {
+  background: var(--color-mint);
+}
+.btn-ghost {
+  border: 1px solid rgba(231, 238, 232, 0.28);
+  color: var(--color-moon);
+}
+.btn-ghost:hover {
+  border-color: var(--color-mint);
+  color: var(--color-mint);
+}
+.arrow {
+  display: inline-block;
+  width: 16px;
+  height: 10px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'><path d='M0 5h14M10 1l4 4-4 4' fill='none' stroke='black' stroke-width='1.5'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'><path d='M0 5h14M10 1l4 4-4 4' fill='none' stroke='black' stroke-width='1.5'/></svg>") center / contain no-repeat;
+  transition: transform 0.35s ease;
+}
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+:focus-visible {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 2px;
+}
+
+/* wave layer drift (CSS-only baseline; GSAP morphs path shapes on top) */
+@keyframes drift-a {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.drift-a { animation: drift-a 38s linear infinite; }
+.drift-b { animation: drift-a 56s linear infinite reverse; }
+.drift-c { animation: drift-a 80s linear infinite; }
+
+@keyframes light-sway {
+  0%, 100% { opacity: 0.35; transform: translateX(-3%) skewX(-6deg); }
+  50% { opacity: 0.6; transform: translateX(3%) skewX(-3deg); }
+}
+.light-sway { animation: light-sway 14s ease-in-out infinite; }
+
+@keyframes scroll-cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+@keyframes critical-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(241, 120, 105, 0.0); }
+  50% { box-shadow: 0 0 0 3px rgba(241, 120, 105, 0.18); }
+}
+.critical-pulse { animation: critical-pulse 1.8s ease-in-out infinite; }
+
+/* operational app scrollbars */
+.app-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.app-scroll::-webkit-scrollbar-thumb { background: #1d3430; border-radius: 4px; }
+.app-scroll::-webkit-scrollbar-track { background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drift-a, .drift-b, .drift-c, .light-sway, .pulse-dot, .critical-pulse { animation: none !important; }
+  * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
